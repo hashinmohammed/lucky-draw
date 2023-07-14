@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+
 .app {
     background-color: #0B1952;
     background-image: url('../public/556 1.png');
@@ -26,14 +28,69 @@
     object-fit: contain;
     overflow: hidden;
   }
+  @keyframes pulsing {
+    0% {
+      color: #FFF;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+    50% {
+      color: #F00;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+    font-family: 'Space Grotesk', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+    100% {
+      color: #FFF;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+  }
+  
+  .firstPrice {
+    /* background-color: yellow; */
+    width: 100vw;
+    /* Add your desired styles for the first price heading */
+    color: #FFF;
+    text-shadow: 7px 4px 41px 0px #31ADE0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5.6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulsing 2s infinite;
+  }
+  
   
   .cardsContainer {
-   /* background-color: red; */
+    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     flex-wrap: wrap;
-  width: 80vw;
+    width: 80vw;
     height: 70vh; /* Adjust height as needed */
     background-image: url('../public/Group 1506.png');
     background-repeat: no-repeat;
@@ -41,6 +98,7 @@
     background-size: contain;
     z-index: 1;
   }
+  
   .cards{
     display: flex;
     justify-content: center;
@@ -121,6 +179,7 @@
     height: auto;
     animation: none
   }
+  
   @keyframes pulse {
     0% {
       transform: scale(1);

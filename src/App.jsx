@@ -10,6 +10,7 @@ import cardImage_6 from './assets/6.png';
 import bottomImage from '../public/base.png';
 import hoverImage from '../public/btn-1.png';
 import congratulationImage from '../public/congratulation.png';
+import ConfettiComponent from './components/ConfettiComponent';
 
 const App = () => {
   const [cardImages, setCardImages] = useState([
@@ -24,6 +25,7 @@ const App = () => {
   const [intervalDuration, setIntervalDuration] = useState(100);
   const [count, setCount] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const[isPopperVisible,setIsPopperVisible]=useState(false)
   const intervalRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -80,29 +82,39 @@ const App = () => {
     if (count === 40) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
+      setIsPopperVisible(true)
     }
   }, [count]);
 
   useEffect(() => {
     if (count === 40) {
-      setIsButtonDisabled(false);
+      setIsButtonDisabled(true);
     }
   }, [count]);
 
   return (
     <div className={styles.app}>
+      <div style={{width:'100vw'}}>
+      
+        {isPopperVisible&&
+        <ConfettiComponent />
+        }
+
+      </div>
+        
+        
+
       <div className={styles.header}>
         <img src={congratulationImage} alt="" />
+        {count >= 40 && (
+          <h1 className={styles.firstPrice}>1ST PRICE</h1>
+        )}
       </div>
       <div className={styles.cardsContainer}>
         <div className={styles.cards}>
           {cardImages.map((cardImage) => (
             <div className={styles.card} key={cardImage.id}>
-              <img
-                src={cardImage.src}
-                alt=""
-                className={styles.cardImage}
-              />
+              <img src={cardImage.src} alt="" className={styles.cardImage} />
             </div>
           ))}
         </div>
@@ -118,7 +130,7 @@ const App = () => {
           <img
             src={hoverImage}
             alt=""
-            style={{ width: '100%', height: '100%', filter: isButtonDisabled ? 'grayscale(100%)' : 'none' }}
+            style={{ width: '100%', height: '100%',animation:isButtonDisabled && 'none', filter: isButtonDisabled ? 'grayscale(100%)' : 'none' }}
           />
         </button>
       </div>
