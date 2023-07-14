@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './App.module.css';
-import cardImage_1 from './assets/1.png';
-import cardImage_2 from './assets/2.png';
-import cardImage_3 from './assets/3.png';
-import cardImage_4 from './assets/4.png';
-import cardImage_5 from './assets/5.png';
-import cardImage_6 from './assets/6.png';
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./App.module.css";
+import cardImage_1 from "./assets/1.png";
+import cardImage_2 from "./assets/2.png";
+import cardImage_3 from "./assets/3.png";
+import cardImage_4 from "./assets/4.png";
+import cardImage_5 from "./assets/5.png";
+import cardImage_6 from "./assets/6.png";
 
-import bottomImage from '../public/base.png';
-import hoverImage from '../public/btn-1.png';
-import congratulationImage from '../public/congratulation.png';
-import ConfettiComponent from './components/ConfettiComponent';
+import SpinButton from "./components/SpinButton";
+import BottomPanel from "./components/BottomPanel";
+import LotteryWeel from "./components/LotteryWeel";
+import Header from "./components/Header";
+import Popper from "./components/Popper";
 
 const App = () => {
   const [cardImages, setCardImages] = useState([
@@ -25,7 +26,7 @@ const App = () => {
   const [intervalDuration, setIntervalDuration] = useState(100);
   const [count, setCount] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const[isPopperVisible,setIsPopperVisible]=useState(false)
+  const [isPopperVisible, setIsPopperVisible] = useState(false);
   const intervalRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -35,17 +36,16 @@ const App = () => {
         setCardImages((prevCardImages) => {
           return prevCardImages.map((cardImage) => {
             const randomNumber = Math.floor(Math.random() * 9) + 1;
-            const updatedImage = { ...cardImage, src: cardImage.src.replace(/\d+/, randomNumber) };
+            const updatedImage = {
+              ...cardImage,
+              src: cardImage.src.replace(/\d+/, randomNumber),
+            };
             return updatedImage;
           });
         });
 
         setCount((prevCount) => prevCount + 1);
       }, intervalDuration);
-    } else {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-      setCount(0);
     }
   };
 
@@ -56,7 +56,10 @@ const App = () => {
         setCardImages((prevCardImages) => {
           return prevCardImages.map((cardImage) => {
             const randomNumber = Math.floor(Math.random() * 9) + 1;
-            const updatedImage = { ...cardImage, src: cardImage.src.replace(/\d+/, randomNumber) };
+            const updatedImage = {
+              ...cardImage,
+              src: cardImage.src.replace(/\d+/, randomNumber),
+            };
             return updatedImage;
           });
         });
@@ -70,7 +73,10 @@ const App = () => {
         setCardImages((prevCardImages) => {
           return prevCardImages.map((cardImage) => {
             const randomNumber = Math.floor(Math.random() * 9) + 1;
-            const updatedImage = { ...cardImage, src: cardImage.src.replace(/\d+/, randomNumber) };
+            const updatedImage = {
+              ...cardImage,
+              src: cardImage.src.replace(/\d+/, randomNumber),
+            };
             return updatedImage;
           });
         });
@@ -82,58 +88,21 @@ const App = () => {
     if (count === 40) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
-      setIsPopperVisible(true)
-    }
-  }, [count]);
-
-  useEffect(() => {
-    if (count === 40) {
       setIsButtonDisabled(true);
+      setIsPopperVisible(true);
     }
   }, [count]);
 
   return (
     <div className={styles.app}>
-      <div style={{width:'100vw'}}>
-      
-        {isPopperVisible&&
-        <ConfettiComponent />
-        }
-
-      </div>
-        
-        
-
-      <div className={styles.header}>
-        <img src={congratulationImage} alt="" />
-        {count >= 40 && (
-          <h1 className={styles.firstPrice}>1ST PRICE</h1>
-        )}
-      </div>
-      <div className={styles.cardsContainer}>
-        <div className={styles.cards}>
-          {cardImages.map((cardImage) => (
-            <div className={styles.card} key={cardImage.id}>
-              <img src={cardImage.src} alt="" className={styles.cardImage} />
-            </div>
-          ))}
-        </div>
-      </div>
-      <img src={bottomImage} alt="" className={styles.bottomImage} />
-      <div className={styles.hoverImageContainer}>
-        <button
-          className={`spin-btn ${isButtonDisabled ? styles.disabledButton : ''}`}
-          onClick={handleButtonClick}
-          disabled={isButtonDisabled}
-          style={{ background: 'transparent', border: 'none', padding: 0, cursor: 'pointer' }}
-        >
-          <img
-            src={hoverImage}
-            alt=""
-            style={{ width: '100%', height: '100%',animation:isButtonDisabled && 'none', filter: isButtonDisabled ? 'grayscale(100%)' : 'none' }}
-          />
-        </button>
-      </div>
+      <Popper isPopperVisible={isPopperVisible} />
+      <Header count={count} />
+      <LotteryWeel cardImages={cardImages} />
+      <BottomPanel />
+      <SpinButton
+        isButtonDisabled={isButtonDisabled}
+        handleButtonClick={handleButtonClick}
+      />
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: #fff; */
+    height: 200px;
+    width: 70vw;
+    justify-content: center;
+  }
+  .header img{
+    /* background-color: red; */
+    height: 200px;
+    width: 100vw;
+    object-fit: contain;
+    overflow: hidden;
+  }

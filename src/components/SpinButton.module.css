@@ -1,0 +1,42 @@
+.hoverImageContainer {
+    /* background-color: #fff; */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width:269px; /* Adjust width as needed */
+    height: 100px;
+    text-align: center;
+    transition: filter 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hoverImageContainer img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: pulse 1s infinite;
+  }
+  
+  .hoverImageContainer:hover {
+    filter: brightness(1.2); /* Adjust brightness as needed */
+  }
+  .hoverImageContainer img:hover {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: none
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

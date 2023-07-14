@@ -1,5 +1,5 @@
 import React from 'react';
-import './ConfettiComponent.css';
+import './Popper.css';
 const wrapperStyle = {
     position: 'fixed',
     top: 0,
@@ -13,7 +13,8 @@ const wrapperStyle = {
   };
 
 
-const ConfettiComponent = () => {
+const Popper = ({isPopperVisible}) => {
+ 
   const renderConfetti = () => {
     const confetti = [];
     for (let i = 0; i <= 400; i++) {
@@ -38,7 +39,8 @@ const ConfettiComponent = () => {
     return dollars;
   };
 
-  return (
+  return isPopperVisible? (
+   
    <div style={wrapperStyle}>
      <div className="confettiHerePlease dollarDollarBillYall moreMoneyMoreProblems">
       {renderDollars()}
@@ -46,7 +48,7 @@ const ConfettiComponent = () => {
       {renderConfetti()}
     </div>
    </div>
-  );
+  ):null;
 };
 
-export default ConfettiComponent;
+export default Popper;

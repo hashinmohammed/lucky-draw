@@ -1,0 +1,59 @@
+
+@font-face {
+  font-family: 'Aspire Narrow SC Black Obl';
+  src: url('../font/FontsFree-Net-AspireNarrowSCBlackObl-Regular.ttf') format('truetype');
+}
+
+  .firstPrice {
+    /* background-color: yellow; */
+    width: 100vw;
+    /* Add your desired styles for the first price heading */
+    color: #FFF;
+    text-shadow: 7px 4px 41px 0px #31ADE0;
+    font-family: 'Aspire Narrow SC Black Obl', sans-serif;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5.6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulsing 2s infinite;
+    /* width: 750px; */
+height: 111px;
+  }
+  @keyframes pulsing {
+    0% {
+      color: #FFF;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+      font-family: 'Aspire Narrow SC Black Obl', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+    50% {
+      color: #F00;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+    font-family: 'Aspire Narrow SC Black Obl', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+    100% {
+      color: #FFF;
+      text-shadow: 7px 4px 41px 0px #31ADE0;
+      font-family: 'Aspire Narrow SC Black Obl', sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 5.6px;
+    }
+  }
+  
+  
