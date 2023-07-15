@@ -21,3 +21,9 @@ This is a Lucky Draw application built with React and Vite. It allows users to p
   
     ```shell
       npm install
+3. Run the Project
+
+    ```shell
+      npm run dev
+
+   
