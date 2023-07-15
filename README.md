@@ -15,7 +15,7 @@ This is a Lucky Draw application built with React and Vite. It allows users to p
 1. Clone the repository:
 
    ```shell
-   git clone <repository-url>
+   git clone "https://github.com/hashinmohammed/lucky-draw"
    cd Lucky-Draw
 2. Install the dependencies
   
