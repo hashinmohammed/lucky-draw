@@ -19,11 +19,11 @@ This is a Lucky Draw application built with React and Vite. It allows users to p
    cd Lucky-Draw
 2. Install the dependencies
   
-    ```shell
-      npm install
+```shell
+npm install
 3. Run the Project
 
-    ```shell
-      npm run dev
+```shell
+npm run dev
 
    
