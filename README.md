@@ -8,10 +8,9 @@ git clone <repository-url>
 cd Lucky-Draw
 
 
-```shell
+
 npm install
 
 
-```shell
 
 npm run dev
