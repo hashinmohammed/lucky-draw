@@ -7,6 +7,8 @@ import cardImage_4 from "./assets/4.png";
 import cardImage_5 from "./assets/5.png";
 import cardImage_6 from "./assets/6.png";
 
+
+
 import SpinButton from "./components/SpinButton";
 import BottomPanel from "./components/BottomPanel";
 import LotteryWeel from "./components/LotteryWeel";
@@ -23,7 +25,7 @@ const App = () => {
     { id: 6, src: cardImage_6 },
   ]);
 
-  const [intervalDuration, setIntervalDuration] = useState(100);
+  
   const [count, setCount] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isPopperVisible, setIsPopperVisible] = useState(false);
@@ -45,7 +47,7 @@ const App = () => {
         });
 
         setCount((prevCount) => prevCount + 1);
-      }, intervalDuration);
+      }, 100);
     }
   };
 

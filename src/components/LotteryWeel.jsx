@@ -6,7 +6,7 @@ const LotteryWeel = ({cardImages}) => {
         <div className={styles.cards}>
           {cardImages.map((cardImage) => (
             <div className={styles.card} key={cardImage.id}>
-              <img src={cardImage.src} alt="" className={styles.cardImage} />
+              <img src={cardImage.src} alt={cardImage.src} className={styles.cardImage} />
             </div>
           ))}
         </div>

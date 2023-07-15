@@ -4,7 +4,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width:269px; /* Adjust width as needed */
+    width:269px;
     height: 100px;
     text-align: center;
     transition: filter 0.3s ease-in-out;
@@ -20,7 +20,7 @@
   }
   
   .hoverImageContainer:hover {
-    filter: brightness(1.2); /* Adjust brightness as needed */
+    filter: brightness(1.2);
   }
   .hoverImageContainer img:hover {
     display: block;
